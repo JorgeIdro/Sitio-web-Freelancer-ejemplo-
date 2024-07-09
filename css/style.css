@@ -4,6 +4,7 @@
     --primario: #ffc107;
     --secundario: #0097a7;
     --gris: #757575;
+    --gris-claro: #dfe9f3;
 }
 
 /* HTML */
@@ -20,9 +21,11 @@ html {
 body {
     font-size: 16px; /* 1rem = 10px */
     font-family: "Krub", sans-serif;
+    background-image: linear-gradient(to top, var(--gris-claro) 0%, var(--blanco) 100%); /* gradiente hacia arriba para el fondo de la pag */
 }
 
-/*General */
+/* Tipografía */
+
 h1 {
     font-size: 3.8rem;
 }
@@ -37,6 +40,13 @@ a {
 }
 h1, h2, h3 {
     text-align: center;
+}
+
+/* General */
+
+.contenedor {
+    max-width: 120rem; /* para que el contenedor aumente hasta un max de 120rem*/
+    margin: 0 auto;
 }
 
 
@@ -58,6 +68,15 @@ h1, h2, h3 {
     }
 }
 
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75); /* prefijos para navegadores de versiones anteriores */
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
 /* Header */
 
 .titulo {
@@ -69,11 +88,6 @@ h1, h2, h3 {
 }
 
 /* Navegación principal */
-
-.contenedor {
-    max-width: 120rem; /* para que el contenedor aumente hasta un max de 120rem*/
-    margin: 0 auto;
-}
 
 .nav-bg {
     background-color: var(--secundario);
@@ -113,10 +127,11 @@ h1, h2, h3 {
     height: 45rem;
     /* padding: 2rem; */
     position: relative;
+    margin-bottom: 2rem;
 }
 .contenido-hero {
     position: absolute;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .7); /*efecto oscuro a la imagen*/
     background-color: rgb( 0 0 0 / 70%); /*otra sintaxis mas actual*/
     width: 100%;
     height: 100%;
@@ -138,3 +153,38 @@ h1, h2, h3 {
     display: flex;
     align-items: end ;
 }
+
+/* Servicios */
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* se usa para cuando se quiere crear muchas columnas*/
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1.5rem;
+    }    
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3 {
+    color: var(--secundario);
+}
+.servicio p {
+ line-height: 1.5; /* interlineado */
+ text-align: center;
+}
+.servicio-iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%; /* para crear un circulo */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
